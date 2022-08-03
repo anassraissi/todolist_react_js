@@ -1,29 +1,7 @@
 import React,{Component} from "react";
-  // declaration function or component function name(){ return(<div>   do what you want  </div>)}
-  
-
-function Task(prpos){
-  const todo=prpos.todo;
-  const index=prpos.index;
-  const finish_task=prpos.finish_task;
-  return (
-  <li key={index}>{todo.text+' '} 
-  <button onClick={()=>{finish_task(index)}} >Done</button>
-  </li> );
-  }
-  function Create_task(prpos){
-    
-    return(
-      <div>
-      <input type="text" value={prpos.value}  onChange={prpos.onChange}/>
-
-      <button onClick={prpos.add_task}>Add a task</button>
-      </div>
-          
-    )
-          
-  }
- 
+import Task from "./components/Task";
+import Create_task from "./components/Create_task";  
+// declaration function or component function name(){ return(<div>   do what you want  </div>)}
 
 class Todolist extends Component{
     state={
