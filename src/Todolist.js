@@ -1,4 +1,30 @@
 import React,{Component} from "react";
+  // declaration function or component function name(){ return(<div>   do what you want  </div>)}
+  
+
+function Task(prpos){
+  const todo=prpos.todo;
+  const index=prpos.index;
+  const finish_task=prpos.finish_task;
+  return (
+  <li key={index}>{todo.text+' '} 
+  <button onClick={()=>{finish_task(index)}} >Done</button>
+  </li> );
+  }
+  function Create_task(prpos){
+    
+    return(
+      <div>
+      <input type="text" value={prpos.value}  onChange={prpos.onChange}/>
+
+      <button onClick={prpos.add_task}>Add a task</button>
+      </div>
+          
+    )
+          
+  }
+ 
+
 class Todolist extends Component{
     state={
         todos:[
@@ -37,12 +63,9 @@ add_task=()=>{
           //componant as class external file
         
         return <div>
-                {this.state.todos.map((todo,index)=><li key={index}>{todo.text+' '} 
-                <button onClick={()=>{this.finish_task(index)}} >Done</button>
-                </li>)}
-                <input type="text" value={this.state.new_task}  onChange={this.update_task}/>
-
-                <button onClick={()=>{this.add_task()}} >Add a task</button>
+                {this.state.todos.map((todo,index)=><Task todo={todo} index={index} finish_task={()=>this.finish_task(index)} key={index}></Task>)}
+                <Create_task value={this.state.new_task} onChange={this.update_task} add_task={this.add_task}></Create_task>
+                
         </div> 
     } 
 
