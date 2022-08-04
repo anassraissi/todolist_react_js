@@ -3,7 +3,9 @@ class Controlled_component extends Component{
     // controlled component controle inputs inside component
         state={
                 value:'Default',
-                selectvalue:'3'
+                selectvalue:'3',
+                checked:true,
+                radio_value:1
         }
         setvalue=(event)=>{
                 this.setState({
@@ -15,6 +17,18 @@ class Controlled_component extends Component{
             this.setState({
                 selectvalue:event.target.value
             })
+        }
+        change_checkbox=(event)=>{
+            console.log(event.target.checked);
+            this.setState({
+                
+                checked:event.target.checked  
+            })
+        }
+        change_value=(event)=>{
+                this.setState({
+                    radio_value:event.target.value
+                })
         }
 
     render(){
@@ -31,6 +45,15 @@ class Controlled_component extends Component{
                     <option value={2}>two</option>
                     <option value={3}>tree</option>
                  </select>
+                 <hr/><hr/>
+                 <h3>select tips</h3>
+                 <label>checkbox</label>
+                 <input type="checkbox" checked={this.state.checked} onChange={this.change_checkbox}/>
+                 <hr/><hr/>
+                 <h3>radion button tips</h3>
+                 <input type='radio' value='1' checked={this.state.radio_value==1} onChange={this.change_value}/> one
+                 <input type='radio' value='2' checked={this.state.radio_value==2} onChange={this.change_value} /> two
+
             </div>
         )
     }
