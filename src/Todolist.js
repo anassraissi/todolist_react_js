@@ -1,6 +1,7 @@
 import React,{Component} from "react";
 import Task from "./components/Task";
 import Create_task from "./components/Create_task";  
+import Controlled_component from "./Controlled_component"
 // declaration function or component function name(){ return(<div>   do what you want  </div>)}
 
 class Todolist extends Component{
@@ -41,9 +42,10 @@ add_task=()=>{
           //componant as class external file
         
         return <div>
-                {this.state.todos.map((todo,index)=><Task todo={todo} index={index} finish_task={()=>this.finish_task(index)} key={index}></Task>)}
-                <Create_task value={this.state.new_task} onChange={this.update_task} add_task={this.add_task}></Create_task>
-                
+        {this.state.todos.map((todo,index)=><Task todo={todo} index={index} finish_task={()=>this.finish_task(index)} key={index}></Task>)}
+        <Create_task value={this.state.new_task} onChange={this.update_task} add_task={this.add_task}></Create_task>
+        <Controlled_component></Controlled_component>
+           
         </div> 
     } 
 
