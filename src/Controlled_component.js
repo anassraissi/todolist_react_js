@@ -15,6 +15,9 @@ class Controlled_component extends Component{
         return(
             <div>
             <input value={this.state.value} onChange={this.setvalue}></input> 
+            <hr/><hr/>
+            <h3>textarea tips on react</h3>
+                <textarea value={this.state.value} onChange={this.setvalue}/>        //declaration
             </div>
         )
     }
