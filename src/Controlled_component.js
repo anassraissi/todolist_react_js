@@ -51,8 +51,11 @@ class Controlled_component extends Component{
                  <input type="checkbox" checked={this.state.checked} onChange={this.change_checkbox}/>
                  <hr/><hr/>
                  <h3>radion button tips</h3>
-                 <input type='radio' value='1' checked={this.state.radio_value==1} onChange={this.change_value}/> one
-                 <input type='radio' value='2' checked={this.state.radio_value==2} onChange={this.change_value} /> two
+                 <div onChange={this.change_value}>
+                 <input type='radio' value='1' checked={this.state.radio_value==1} /> one
+                 <input type='radio' value='2' checked={this.state.radio_value==2} /> two
+                 </div>
+    
 
             </div>
         )
