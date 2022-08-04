@@ -8,39 +8,32 @@ class Controlled_component extends Component{
                 radio_value:1
         }
         setvalue=(event)=>{
+            const name=event.target.name;  //jbad name dyal inputs 
+            const type=event.target.type;
+            if(type=='checkbox'){
                 this.setState({
-                    value:event.target.value   //mnin tbadal input 3tiha l value dyalha
+                    [name]:event.target.checked    //obligatoit [] mnin use input nafs name              
                 });
-
-        }
-        change_select_value=(event)=>{
-            this.setState({
-                selectvalue:event.target.value
-            })
-        }
-        change_checkbox=(event)=>{
-            console.log(event.target.checked);
-            this.setState({
-                
-                checked:event.target.checked  
-            })
-        }
-        change_value=(event)=>{
+            }
+            else{
                 this.setState({
-                    radio_value:event.target.value
-                })
+                    [name]:event.target.value           
+                });
+            }
+               
         }
+
 
     render(){
         return(
             <div>
-            <input value={this.state.value} onChange={this.setvalue}></input> 
+            <input name='value' value={this.state.value} onChange={this.setvalue}></input> 
             <hr/><hr/>
             <h3>textarea tips on react</h3>
-                <textarea value={this.state.value} onChange={this.setvalue}/>        //declaration
+                <textarea name='value' value={this.state.value} onChange={this.setvalue}/>  //declaration
                 <hr/><hr/>
                  <h3>select tips</h3>
-                 <select value={this.state.selectvalue} onChange={this.change_select_value}> 
+                 <select name='selectvalue' value={this.state.selectvalue} onChange={this.setvalue}> 
                     <option value={1}>one</option>
                     <option value={2}>two</option>
                     <option value={3}>tree</option>
@@ -48,12 +41,12 @@ class Controlled_component extends Component{
                  <hr/><hr/>
                  <h3>select tips</h3>
                  <label>checkbox</label>
-                 <input type="checkbox" checked={this.state.checked} onChange={this.change_checkbox}/>
+                 <input name='checked' type="checkbox" checked={this.state.checked} onChange={this.setvalue}/>
                  <hr/><hr/>
                  <h3>radion button tips</h3>
-                 <div onChange={this.change_value}>
-                 <input type='radio' value='1' checked={this.state.radio_value==1} /> one
-                 <input type='radio' value='2' checked={this.state.radio_value==2} /> two
+                 <div onChange={this.setvalue}>
+                 <input name='radio_value' type='radio' value='1' checked={this.state.radio_value==1} /> one
+                 <input name='radio_value' type='radio' value='2' checked={this.state.radio_value==2} /> two
                  </div>
     
 
